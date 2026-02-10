@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Privacy - Nyxbyte</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Legal - Nyxbyte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #00ff41;
-            --secondary: #39ff14;
-            --accent: #00cc33;
-            --text: #e8e8e8;
-            --text-muted: #a0a0a0;
-            --bg-dark: #0a0a0f;
-            --card-bg: rgba(20, 20, 30, 0.8);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #00ff41;
+            --secondary: #39ff14;
+            --accent: #00cc33;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #b0b0b0;
+            --border: #2a2a2a;
+        }
+
         body {
-            font-family: 'Manrope', sans-serif;
-            font-size: 17px;
-            line-height: 1.7;
-            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--bg-dark);
-            min-height: 100vh;
-            position: relative;
+            color: var(--text);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
+        /* Animated background */
         body::before {
             content: '';
             position: fixed;
@@ -41,400 +40,282 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(57, 255, 20, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(0, 204, 51, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(57, 255, 20, 0.08) 0%, transparent 50%);
             z-index: 0;
-            animation: bgShift 20s ease-in-out infinite;
+            animation: bgPulse 15s ease-in-out infinite;
         }
 
-        @keyframes bgShift {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 60px auto;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Header */
         .header {
-            background: linear-gradient(135deg, rgba(0, 204, 51, 0.2) 0%, rgba(57, 255, 20, 0.2) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 20px 20px 0 0;
-            padding: 80px 50px 40px 50px;
-            text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(0, 255, 65, 0.1) 60deg, transparent 120deg);
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            z-index: 10;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
         }
 
         .header-content {
-            position: relative;
-            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 80px rgba(0, 255, 65, 0.5);
-            letter-spacing: -2px;
         }
 
-        .subtitle {
-            font-size: 1.5em;
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 10px;
+        .tagline {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-style: italic;
+            margin-top: 0.2rem;
         }
 
-        .last-updated {
-            margin-top: 25px;
-            font-size: 0.9em;
-            color: var(--text-muted);
-            font-family: 'Space Grotesk', monospace;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .discord-widget {
+        /* Hero Section */
+        .hero {
             position: relative;
             z-index: 1;
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Discord Widget */
+        .discord-widget {
+            margin: 3rem auto;
+            text-align: center;
         }
 
         .discord-widget iframe {
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            background: rgba(10, 10, 15, 0.6);
-            padding: 0;
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-top: none;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        /* Cards Grid */
+        .cards-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
-        .nav-tabs button {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1em;
-            font-weight: 600;
-            padding: 20px 40px;
-            background: transparent;
-            color: var(--text-muted);
-            border: none;
-            cursor: pointer;
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
             transition: all 0.3s ease;
-            flex: 1;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-tabs button:hover {
-            color: var(--primary);
-            background: rgba(0, 255, 65, 0.05);
-        }
-
-        .nav-tabs button.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-            background: rgba(0, 255, 65, 0.1);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-        }
-
-        .content {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-top: none;
-            padding: 70px 60px;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .intro {
-            font-size: 1.1em;
-            color: var(--text);
-            margin-bottom: 50px;
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 204, 51, 0.1) 100%);
-            border-left: 4px solid var(--primary);
-            border-radius: 10px;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
-        .intro::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.05), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2em;
-            color: var(--primary);
-            margin: 60px 0 30px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
-            font-weight: 700;
-            position: relative;
-            letter-spacing: -0.5px;
-        }
-
-        h2::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            box-shadow: 0 0 10px var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
-        h2:first-of-type {
-            margin-top: 0;
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 255, 65, 0.2);
         }
 
-        h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4em;
-            color: var(--accent);
-            margin: 35px 0 20px 0;
-            font-weight: 600;
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
-        p {
-            margin-bottom: 20px;
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             color: var(--text);
         }
 
-        ul {
-            margin: 25px 0 35px 0;
-            padding-left: 0;
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .card ul {
             list-style: none;
+            margin: 1.5rem 0;
         }
 
-        li {
-            margin-bottom: 16px;
-            padding-left: 35px;
+        .card li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
             position: relative;
-            color: var(--text);
         }
 
-        li::before {
+        .card li::before {
             content: '→';
             position: absolute;
             left: 0;
             color: var(--primary);
             font-weight: bold;
-            font-size: 1.3em;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
         }
 
-        .highlight {
-            background: linear-gradient(135deg, rgba(57, 255, 20, 0.15) 0%, rgba(0, 204, 51, 0.15) 100%);
-            padding: 35px;
-            border-radius: 15px;
-            margin: 50px 0;
-            border: 2px solid rgba(0, 255, 65, 0.3);
+        .card h3 {
+            font-size: 1.3rem;
             font-weight: 600;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
-            position: relative;
-            overflow: hidden;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
         }
 
-        .highlight::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-            border-radius: 15px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .highlight:hover::before {
-            opacity: 0.2;
-        }
-
+        /* Special Boxes */
         .info-box {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.15) 0%, rgba(0, 204, 51, 0.15) 100%);
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 204, 51, 0.1) 100%);
+            border: 1px solid rgba(0, 255, 65, 0.3);
             border-radius: 12px;
-            margin: 30px 0;
-            border: 2px solid rgba(0, 255, 65, 0.3);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
         }
 
         .warning-box {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.15) 100%);
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.3);
             border-radius: 12px;
-            margin: 30px 0;
-            border: 2px solid rgba(255, 193, 7, 0.3);
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.1);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .footer {
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 50px;
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.15) 0%, rgba(0, 204, 51, 0.15) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
             text-align: center;
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-top: none;
-            border-radius: 0 0 20px 20px;
+        }
+
+        /* Thank You Card Specific */
+        .thank-you-card {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .thank-you-card h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .thank-you-card .signature {
+            margin-top: 2rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
         }
 
-        .footer a {
+        .thank-you-card .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        .footer {
             position: relative;
+            z-index: 1;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
         }
 
-        .footer a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
+        .footer p {
+            margin-bottom: 0.5rem;
         }
 
-        .footer a:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        .footer .tagline {
+            color: var(--primary);
+            font-style: italic;
+            margin-top: 1rem;
         }
 
-        .footer a:hover::after {
-            width: 100%;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                margin: 20px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .header {
-                padding: 50px 30px 30px 30px;
+            .cards-container {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem 4rem;
             }
 
-            h1 {
-                font-size: 2.5em;
-            }
-
-            .content {
-                padding: 40px 30px;
-            }
-
-            h2 {
-                font-size: 1.6em;
-            }
-
-            .nav-tabs button {
-                padding: 15px 20px;
-                font-size: 1em;
+            .card {
+                padding: 2rem;
             }
 
             .discord-widget iframe {
@@ -442,122 +323,105 @@
                 max-width: 350px;
             }
         }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <h1>Legal Information</h1>
-                <div class="subtitle">Nyxbyte - a jklr project</div>
-                <div style="margin-top: 10px; font-size: 0.9em; color: var(--primary); font-style: italic;">trust jklr with your bots</div>
-                <div class="last-updated">Last Updated: January 31, 2026</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div>
+                    <div class="logo-text">Nyxbyte</div>
+                    <div class="tagline">trust jklr with your bots</div>
+                </div>
             </div>
-            <div class="discord-widget">
-                <iframe src="https://discord.com/widget?id=1409187099919253718&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Legal Information for <span>Nyxbyte</span></h1>
+        <p>Transparency and trust are our priorities. Review our terms, privacy policy, and a special thank you message.</p>
+        
+        <div class="discord-widget">
+            <iframe src="https://discord.com/widget?id=1409187099919253718&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+    </section>
+
+    <!-- Cards Grid -->
+    <div class="cards-container">
+        <!-- Terms of Service Card -->
+        <div class="card">
+            <div class="card-icon">📜</div>
+            <h2>Terms of Service</h2>
+            <p>By using Nyxbyte, you agree to these terms. Please review them carefully.</p>
+            <div class="tagline">trust jklr with your bots</div>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>By inviting or using the Bot, you confirm that you:</p>
+            <ul>
+                <li>Are at least 13 years old</li>
+                <li>Have authority to bind your server to these Terms</li>
+                <li>Agree to comply with Discord's Terms of Service</li>
+            </ul>
+
+            <h3>2. Description of Service</h3>
+            <p>The Bot provides:</p>
+            <ul>
+                <li>Profile picture management and modification tools</li>
+                <li>Server moderation capabilities and tools</li>
+                <li>Other features as may be added or modified</li>
+            </ul>
+
+            <h3>3. User Responsibilities</h3>
+            <p>When using the Bot, you agree to:</p>
+            <ul>
+                <li>Use the Bot only for lawful purposes</li>
+                <li>Not harass, abuse, or harm others</li>
+                <li>Not reverse engineer or extract source code</li>
+                <li>Not distribute malware, spam, or harmful content</li>
+                <li>Not abuse rate limits or security measures</li>
+            </ul>
+
+            <h3>4. Prohibited Conduct</h3>
+            <ul>
+                <li>Violating any applicable laws or regulations</li>
+                <li>Infringing upon intellectual property rights</li>
+                <li>Disrupting the Bot or Discord's services</li>
+                <li>Gaining unauthorized access to systems</li>
+            </ul>
+
+            <h3>5. Intellectual Property</h3>
+            <p>All rights to the Bot remain our exclusive property. These Terms do not grant you any rights to use our trademarks or brand features.</p>
+
+            <h3>6. Disclaimer of Warranties</h3>
+            <p>THE BOT IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. WE DISCLAIM ALL WARRANTIES INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+            <h3>7. Limitation of Liability</h3>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES.</p>
+
+            <h3>8. Termination</h3>
+            <p>We reserve the right to suspend or terminate your access at any time. You may stop using the Bot by removing it from your server.</p>
+
+            <div class="highlight-box">
+                <p><strong>By using Nyxbyte, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong></p>
             </div>
         </div>
 
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="showTab('tos')">Terms of Service</button>
-            <button class="tab-btn" onclick="showTab('privacy')">Privacy Policy</button>
-            <button class="tab-btn" onclick="showTab('thanks')">Thank You</button>
-        </div>
+        <!-- Privacy Policy Card -->
+        <div class="card">
+            <div class="card-icon">🔒</div>
+            <h2>Privacy Policy</h2>
+            <p>Your privacy matters. Learn how we handle your data with complete transparency.</p>
+            <div class="tagline">trust jklr with your bots</div>
 
-        <div class="content">
-            <!-- Terms of Service -->
-            <div id="tos" class="tab-content active">
-                <div class="intro">
-                    Welcome to Nyxbyte (the "Bot"), a jklr project. By adding the Bot to your Discord server or using any of its features, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Bot.
-                    <div style="margin-top: 20px; text-align: center; color: var(--primary); font-style: italic; font-size: 0.95em;">trust jklr with your bots</div>
-                </div>
-
-                <h2>1. Acceptance of Terms</h2>
-                <p>By inviting or using the Bot, you confirm that you:</p>
-                <ul>
-                    <li>Are at least 13 years old (or the minimum age required in your jurisdiction)</li>
-                    <li>Have the authority to bind your Discord server to these Terms if you are a server administrator</li>
-                    <li>Agree to comply with Discord's Terms of Service and Community Guidelines</li>
-                </ul>
-
-                <h2>2. Description of Service</h2>
-                <p>The Bot provides the following features:</p>
-                <ul>
-                    <li>Profile picture management and modification tools</li>
-                    <li>Server moderation capabilities and tools</li>
-                    <li>Other features as may be added or modified from time to time</li>
-                </ul>
-                <p>We reserve the right to modify, suspend, or discontinue any feature of the Bot at any time without prior notice.</p>
-
-                <h2>3. User Responsibilities</h2>
-                <p>When using the Bot, you agree to:</p>
-                <ul>
-                    <li>Use the Bot only for lawful purposes and in accordance with these Terms</li>
-                    <li>Not use the Bot to harass, abuse, or harm others</li>
-                    <li>Not attempt to reverse engineer, decompile, or extract source code from the Bot</li>
-                    <li>Not use the Bot to distribute malware, spam, or other harmful content</li>
-                    <li>Not abuse, exploit, or circumvent any rate limits or security measures</li>
-                    <li>Ensure that your use complies with all applicable local, state, national, and international laws</li>
-                </ul>
-
-                <h2>4. Prohibited Conduct</h2>
-                <p>You may not use the Bot to:</p>
-                <ul>
-                    <li>Violate any applicable laws or regulations</li>
-                    <li>Infringe upon the rights of others, including intellectual property rights</li>
-                    <li>Engage in any form of automated use that disrupts the Bot or Discord's services</li>
-                    <li>Attempt to gain unauthorized access to the Bot's systems or networks</li>
-                </ul>
-
-                <h2>5. Intellectual Property</h2>
-                <p>All rights, title, and interest in and to the Bot, including all associated intellectual property rights, remain our exclusive property. These Terms do not grant you any rights to use our trademarks, logos, or other brand features.</p>
-
-                <h2>6. Disclaimer of Warranties</h2>
-                <p>THE BOT IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE BOT WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</p>
-
-                <h2>7. Limitation of Liability</h2>
-                <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES RESULTING FROM:</p>
-                <ul>
-                    <li>Your use or inability to use the Bot</li>
-                    <li>Any unauthorized access to or use of our servers</li>
-                    <li>Any interruption or cessation of the Bot</li>
-                    <li>Any bugs, viruses, or other harmful code that may be transmitted through the Bot</li>
-                </ul>
-
-                <h2>8. Indemnification</h2>
-                <p>You agree to indemnify, defend, and hold harmless the Bot operators, developers, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including reasonable legal fees, arising out of or in any way connected with your access to or use of the Bot or your violation of these Terms.</p>
-
-                <h2>9. Termination</h2>
-                <p>We reserve the right to suspend or terminate your access to the Bot at any time, with or without cause, and with or without notice. You may stop using the Bot at any time by removing it from your Discord server.</p>
-
-                <h2>10. Changes to Terms</h2>
-                <p>We may modify these Terms at any time. We will notify users of any material changes by updating the "Last Updated" date at the top of these Terms. Your continued use of the Bot after any such changes constitutes your acceptance of the new Terms.</p>
-
-                <h2>11. Governing Law</h2>
-                <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which the Bot operator resides, without regard to its conflict of law provisions.</p>
-
-                <h2>12. Dispute Resolution</h2>
-                <p>Any disputes arising out of or relating to these Terms or the Bot shall be resolved through good faith negotiation. If a dispute cannot be resolved through negotiation, it shall be submitted to binding arbitration in accordance with the rules of the applicable arbitration association.</p>
-
-                <h2>13. Severability</h2>
-                <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that these Terms shall otherwise remain in full force and effect.</p>
-
-                <h2>14. Contact Information</h2>
-                <p>If you have any questions about these Terms, please contact us through our support Discord server or via the contact information provided with the Bot.</p>
-
-                <div class="highlight">
-                    By using Nyxbyte, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
-                </div>
-            </div>
-
-            <!-- Privacy Policy -->
-            <div id="privacy" class="tab-content">
-                <div class="intro">
-                    This Privacy Policy describes how Nyxbyte ("we," "us," or "the Bot"), a jklr project, handles information when you use our Discord bot. Your privacy is important to us, and we are committed to transparency about our data practices.
-                    <div style="margin-top: 20px; text-align: center; color: var(--primary); font-style: italic; font-size: 0.95em;">trust jklr with your bots</div>
-                </div>
-
-                <h2>Data We Process</h2>
+            <div class="info-box">
+                <h3 style="margin-top: 0;">📊 Data We Process</h3>
                 <p>The bot may temporarily process the following information in order to function:</p>
                 <ul>
                     <li>Discord User IDs</li>
@@ -565,175 +429,110 @@
                     <li>Message content related to commands</li>
                 </ul>
                 <p><strong>This information is processed in memory only and is not stored or logged.</strong></p>
-
-                <div class="warning-box">
-                    <h2 style="margin-top: 0; border: none; padding-bottom: 0;">⭐ Premium User Data Storage</h2>
-                    <p style="margin-bottom: 0; font-size: 1.05em; margin-top: 15px;"><strong>Exception:</strong> We store only the User IDs of premium subscribers. This is necessary to maintain premium status in the event of server restarts or maintenance. No other information about premium users is stored.</p>
-                </div>
-
-                <h2>1. Information We Access</h2>
-                <p>To function properly, the Bot temporarily accesses certain information provided by Discord's API during command execution:</p>
-                <ul>
-                    <li>User IDs: Discord user identification numbers (accessed temporarily, not stored except for premium users)</li>
-                    <li>Server IDs: Discord server (guild) identification numbers (accessed temporarily, not stored)</li>
-                    <li>Message content: Only when necessary to execute specific commands</li>
-                    <li>Profile pictures: Processed in real-time for modification features, then immediately discarded</li>
-                </ul>
-                <p><strong>Important:</strong> Except for premium user IDs, all of this information is processed in memory and is never written to disk, databases, or any permanent storage. Once a command completes, all associated data is immediately discarded.</p>
-
-                <h2>2. How We Process Information</h2>
-                <p>The Bot operates primarily in real-time:</p>
-                <ul>
-                    <li>Commands are processed instantly in memory</li>
-                    <li>Profile picture modifications are performed temporarily and the results are sent back to Discord</li>
-                    <li>Moderation actions are executed immediately without logging</li>
-                    <li>No data persists after command execution completes (except premium user IDs)</li>
-                </ul>
-
-                <h2>3. Data Retention</h2>
-                <p><strong>General Users:</strong> We retain absolutely no data. There are no logs, no databases, and no files created or stored. Every interaction with the Bot is ephemeral and exists only during command execution.</p>
-                <p><strong>Premium Users:</strong> We store only your Discord User ID to maintain your premium status across bot restarts and server maintenance. This ensures uninterrupted access to premium features. No other personal information, usage data, or activity logs are stored.</p>
-
-                <h2>4. Data Sharing and Disclosure</h2>
-                <p>We do not sell, trade, or rent any user information to third parties. The only data we maintain (premium user IDs) is kept strictly confidential and used solely for service provision.</p>
-                <p>We may disclose information only if legally compelled to do so by valid legal process.</p>
-
-                <h2>5. Data Security</h2>
-                <p>We implement reasonable security measures to protect stored premium user IDs from unauthorized access. The minimal data we store significantly reduces the risk of data breaches or leaks.</p>
-                <p>The Bot operates with minimal permissions necessary to perform its functions, and all processing happens in secure, isolated execution environments.</p>
-
-                <h2>6. Your Rights and Choices</h2>
-                <p><strong>General Users:</strong></p>
-                <ul>
-                    <li>There is no data to access, review, or download</li>
-                    <li>There is no data to delete or modify</li>
-                    <li>You can use the Bot with confidence that your information is not being tracked or stored</li>
-                </ul>
-                <p><strong>Premium Users:</strong></p>
-                <ul>
-                    <li>You can request deletion of your User ID at any time (note: this will remove your premium status)</li>
-                    <li>You can request confirmation of what data we store about you</li>
-                    <li>Canceling your premium subscription will result in your User ID being removed from our database</li>
-                </ul>
-                <p>You can stop using the Bot at any time by removing it from your Discord server.</p>
-
-                <h2>7. Children's Privacy</h2>
-                <p>The Bot is not intended for use by individuals under the age of 13 (or the minimum age required in your jurisdiction). We do not knowingly collect or store data from children.</p>
-
-                <h2>8. Third-Party Services</h2>
-                <p>The Bot operates on Discord's platform and is subject to Discord's Privacy Policy and Terms of Service. Discord may collect and process data according to their own policies. Please review Discord's privacy policy at https://discord.com/privacy.</p>
-                <p>We do not integrate with any other third-party services that would have access to your data.</p>
-
-                <h2>9. Analytics and Monitoring</h2>
-                <p>We do not use analytics services, tracking pixels, cookies, or any other monitoring technologies. Your usage of the Bot is completely private and untracked.</p>
-
-                <h2>10. Changes to This Privacy Policy</h2>
-                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. Any material changes will be reflected by updating the "Last Updated" date at the top of this policy. If we begin collecting additional data beyond premium user IDs, we will provide prominent notice and obtain consent as required.</p>
-
-                <h2>11. Contact Us</h2>
-                <p>If you have any questions or concerns about this Privacy Policy, our data practices, or wish to exercise your rights regarding your data, please contact us through:</p>
-                <ul>
-                    <li>Our support Discord server</li>
-                    <li>The contact information provided with the Bot</li>
-                </ul>
-
-                <div class="highlight">
-                    By using Nyxbyte, you acknowledge that you have read and understood this Privacy Policy. We minimize data collection and only store premium user IDs for service continuity.
-                </div>
             </div>
 
-            <!-- Thank You Message -->
-            <div id="thanks" class="tab-content">
-                <div style="text-align: center; margin-bottom: 50px;">
-                    <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3em; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px;">Thank You! 💚</h1>
-                    <p style="font-size: 1.3em; color: var(--primary); font-weight: 600;">For choosing Nyxbyte</p>
-                </div>
+            <div class="warning-box">
+                <h3 style="margin-top: 0;">⭐ Premium User Data Storage</h3>
+                <p><strong>Exception:</strong> We store only the User IDs of premium subscribers. This is necessary to maintain premium status in the event of server restarts or maintenance. No other information about premium users is stored.</p>
+            </div>
 
-                <div class="intro">
-                    We want to take a moment to express our deepest gratitude to you for choosing Nyxbyte as your Discord bot companion. Your trust and support mean the world to us!
-                    <div style="margin-top: 20px; text-align: center; color: var(--primary); font-style: italic; font-size: 0.95em;">trust jklr with your bots</div>
-                </div>
+            <h3>1. Information We Access</h3>
+            <p>To function properly, the Bot temporarily accesses:</p>
+            <ul>
+                <li>User IDs (not stored except for premium users)</li>
+                <li>Server IDs (not stored)</li>
+                <li>Message content (only for command execution)</li>
+                <li>Profile pictures (processed in real-time, then discarded)</li>
+            </ul>
 
-                <h2>To Our Amazing Community</h2>
+            <h3>2. How We Process Information</h3>
+            <ul>
+                <li>Commands are processed instantly in memory</li>
+                <li>Profile modifications are temporary</li>
+                <li>Moderation actions executed without logging</li>
+                <li>No data persists (except premium user IDs)</li>
+            </ul>
+
+            <h3>3. Data Retention</h3>
+            <p><strong>General Users:</strong> We retain absolutely no data. Every interaction is ephemeral.</p>
+            <p><strong>Premium Users:</strong> We store only your Discord User ID to maintain your premium status across restarts.</p>
+
+            <h3>4. Data Security</h3>
+            <p>The most secure data is data that doesn't exist. By not storing information, we eliminate breach risks entirely.</p>
+
+            <h3>5. Your Rights</h3>
+            <p><strong>General Users:</strong> No data to access, review, or delete.</p>
+            <p><strong>Premium Users:</strong> You can request deletion of your User ID at any time (removes premium status).</p>
+
+            <h3>6. Third-Party Services</h3>
+            <p>The Bot operates on Discord's platform. Please review Discord's privacy policy at https://discord.com/privacy.</p>
+
+            <h3>7. Analytics</h3>
+            <p>We do not use analytics services, tracking pixels, or cookies. Your usage is completely private.</p>
+
+            <div class="highlight-box">
+                <p><strong>By using Nyxbyte, you acknowledge that you have read and understood this Privacy Policy. We minimize data collection and only store premium user IDs for service continuity.</strong></p>
+            </div>
+        </div>
+
+        <!-- Thank You Card -->
+        <div class="card thank-you-card">
+            <div class="card-icon">💚</div>
+            <h2>Thank You!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">We want to express our deepest gratitude for choosing Nyxbyte as your Discord bot companion.</p>
+            <div class="tagline" style="font-size: 1rem; margin-bottom: 3rem;">trust jklr with your bots</div>
+
+            <div style="text-align: left; max-width: 900px; margin: 0 auto;">
+                <h3>To Our Amazing Community</h3>
                 <p>Every single person who invites Nyxbyte to their server, uses our commands, and shares feedback helps shape what this bot becomes. You're not just users—you're part of the Nyxbyte family, and we couldn't be more grateful for your presence.</p>
 
-                <h2>Your Privacy Matters</h2>
-                <p>We want to especially thank you for trusting us with your server. We take that responsibility seriously, which is why we've committed to minimal data collection and maximum transparency. Your privacy isn't just a policy for us—it's a core value. We believe you deserve to use tools that respect your data and your community.</p>
+                <h3>Your Privacy Matters</h3>
+                <p>We want to especially thank you for trusting us with your server. We take that responsibility seriously, which is why we've committed to minimal data collection and maximum transparency. Your privacy isn't just a policy for us—it's a core value.</p>
 
-                <h2>For Our Premium Supporters</h2>
-                <p>To those who have chosen to support Nyxbyte through premium subscriptions: you are absolutely incredible. Your support doesn't just help keep the servers running—it validates the work we're doing and motivates us to keep improving and adding new features. Premium supporters are the backbone that allows us to continue developing and maintaining Nyxbyte at no cost to the majority of users. From the bottom of our hearts, thank you.</p>
+                <h3>For Our Premium Supporters</h3>
+                <p>To those who have chosen to support Nyxbyte through premium subscriptions: you are absolutely incredible. Your support doesn't just help keep the servers running—it validates the work we're doing and motivates us to keep improving. From the bottom of our hearts, thank you.</p>
 
-                <h2>The Journey Ahead</h2>
-                <p>Nyxbyte is constantly evolving. We're always working on new features, improvements, and ways to make your Discord experience even better. Your feedback, suggestions, and feature requests drive our development roadmap. Every message in our support server, every bug report, and every word of encouragement pushes us to be better.</p>
+                <h3>The Journey Ahead</h3>
+                <p>Nyxbyte is constantly evolving. We're always working on new features and improvements. Your feedback drives our development roadmap.</p>
 
                 <p>We're committed to keeping Nyxbyte:</p>
                 <ul>
-                    <li>Privacy-focused: Your data security will always be our priority</li>
-                    <li>Reliable: We work hard to maintain uptime and stability</li>
-                    <li>Feature-rich: Constantly adding new capabilities while keeping things simple</li>
+                    <li>Privacy-focused: Your data security is our priority</li>
+                    <li>Reliable: We maintain uptime and stability</li>
+                    <li>Feature-rich: Constantly adding new capabilities</li>
                     <li>Community-driven: Your input shapes what we build</li>
-                    <li>Accessible: Core features free for everyone, with premium as optional support</li>
+                    <li>Accessible: Core features free for everyone</li>
                 </ul>
 
-                <h2>A Personal Note from the Team</h2>
-                <p>Creating Nyxbyte has taught us so much—not just about coding and bot development, but about community, responsibility, and the importance of building tools that genuinely serve people's needs. Every positive interaction, every "thank you" message, every time someone tells us how Nyxbyte helped their server run smoother or brought a smile to their members' faces—these moments fuel our passion and remind us why we started this project.</p>
+                <h3>A Personal Note from the Team</h3>
+                <p>Creating Nyxbyte has taught us so much about community, responsibility, and building tools that serve people's needs. Every positive interaction fuels our passion and reminds us why we started this project.</p>
 
-                <p>Discord is an amazing platform because of the communities that thrive there. Being a small part of those communities through Nyxbyte is an honor we don't take lightly. We're not a faceless corporation or a massive team—we're just developers who care deeply about creating quality tools and giving back to a platform that has given us so much.</p>
+                <p>Discord is amazing because of the communities that thrive there. Being a small part of those communities through Nyxbyte is an honor we don't take lightly.</p>
 
-                <h2>Looking Forward</h2>
-                <p>The future of Nyxbyte is bright, and that's entirely because of you. As we continue to grow and improve, we promise to stay true to our core values: respect for your privacy, commitment to quality, and dedication to the community.</p>
+                <h3>Stay Connected</h3>
+                <p>Join our Discord server to be part of the community! Share your ideas, report bugs, request features, or just hang out. We're active and love hearing from you.</p>
 
-                <p>We have exciting features planned, optimizations in the works, and big dreams for where Nyxbyte can go. But none of it matters without you. You're the reason we code late into the night. You're the reason we carefully review every line to ensure quality. You're the reason Nyxbyte exists.</p>
-
-                <h2>Stay Connected</h2>
-                <p>Join our Discord server to be part of the community! Share your ideas, report bugs, request features, or just hang out with fellow Nyxbyte users. We're active in our community and love hearing from you. Your voice matters, and we're always listening.</p>
-
-                <h2>In Closing</h2>
-                <p>Thank you for being here. Thank you for inviting Nyxbyte to your server. Thank you for every command you run, every feature you explore, and every moment you spend with our bot. Thank you for your patience when things don't work perfectly, and thank you for celebrating with us when they do.</p>
-
-                <p>Whether you're a free user enjoying the core features or a premium supporter helping us grow, whether you've been with us from day one or just discovered Nyxbyte today—thank you. You're awesome, your server is awesome, and we're honored to be a part of your Discord experience.</p>
-
-                <div class="highlight">
-                    <p style="font-size: 1.2em; text-align: center; margin: 0;">With sincere gratitude and endless appreciation,</p>
-                    <p style="font-size: 1.4em; text-align: center; margin-top: 20px; font-weight: 700; color: var(--primary);">The jklr Team</p>
-                    <p style="text-align: center; margin-top: 15px; font-style: italic; color: var(--text-muted);">Creators of Nyxbyte</p>
-                </div>
-
-                <div class="info-box" style="margin-top: 50px; text-align: center;">
-                    <p style="font-size: 1.1em; margin-bottom: 15px;">💚 Thank you for making Nyxbyte part of your community 💚</p>
-                    <p style="color: var(--text-muted);">Here's to many more amazing moments together!</p>
-                </div>
+                <h3>In Closing</h3>
+                <p>Thank you for being here. Thank you for inviting Nyxbyte to your server. Thank you for every command you run and every feature you explore. Whether you're a free user or premium supporter, whether you've been with us from day one or just discovered us—thank you.</p>
             </div>
-        </div>
 
-        <div class="footer">
-            <p>&copy; 2026 Nyxbyte - a jklr project. All rights reserved.</p>
-            <p style="margin-top: 10px; color: var(--primary); font-style: italic;">trust jklr with your bots</p>
-            <p style="margin-top: 20px;"><a href="index.html">Back to Home</a></p>
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <div class="signature">With sincere gratitude and endless appreciation,</div>
+                <div class="team-name">The jklr Team</div>
+                <p style="font-style: italic; color: var(--text-muted); margin-top: 0.5rem;">Creators of Nyxbyte</p>
+            </div>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <p style="font-size: 1.1em; margin: 0;">💚 Thank you for making Nyxbyte part of your community 💚</p>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Here's to many more amazing moments together!</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        function showTab(tabName) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Remove active class from all buttons
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-
-            // Scroll to top of content
-            document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Nyxbyte - a jklr project. All rights reserved.</p>
+        <p class="tagline">trust jklr with your bots</p>
+    </footer>
 </body>
 </html>
